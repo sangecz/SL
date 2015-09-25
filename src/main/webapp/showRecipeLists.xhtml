@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/basicTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <h:form id="add_list">
+            <h:panelGrid columns="3">
+                <h:column>
+                    <h:outputText value="#{msg.name}" />:
+                </h:column>
+                <h:column>
+                    <h:inputText id="name" value="#{recipeList.name}"/>
+                    <h:message for="name"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="add" action="#{recipeList.add}"/>
+                </h:column>
+            </h:panelGrid>
+        </h:form>
+
+        <h:form>
+            <h:dataTable value="#{database.recipeLists}" var="l">
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{msg.name}"/></f:facet>
+                    #{l.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{msg.noitems}"/></f:facet>
+                    #{database.numberOfItemsRecipeList(l.id)}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{msg.cross}"/></f:facet>
+                    <h:commandButton value="x" action="#{recipeList.cross(l.id, true)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <h:form>
+            <h:dataTable value="#{database.crossedRecipeLists}" var="l">
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{msg.name}"/></f:facet>
+                    #{l.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{msg.noitems}"/></f:facet>
+                    #{database.numberOfItemsRecipeList(l.id)}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{msg.uncross}"/></f:facet>
+                    <h:commandButton value="x" action="#{recipeList.cross(l.id, false)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="#{msg.delete}" action="#{database.deleteCrossedRecipeLists()}"/>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

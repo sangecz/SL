@@ -1,5 +1,6 @@
 package services;
 
+import models.items.IItem;
 import models.lists.IList;
 
 import javax.ejb.Stateless;
@@ -49,4 +50,6 @@ public class ShoppingListService  {
         l.setParameter("crossed", crossed);
         l.executeUpdate();
     }
+
+
 }

@@ -6,6 +6,7 @@ import services.DatabaseManagedBean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.validation.constraints.NotNull;
 import java.util.ResourceBundle;
 
@@ -14,7 +15,7 @@ import java.util.ResourceBundle;
  */
 
 @ManagedBean(name = "shoppingList")
-@RequestScoped
+@ViewScoped
 public class ShoppingListManagedBean {
 
     @NotNull
@@ -37,6 +38,11 @@ public class ShoppingListManagedBean {
     public String cross(long id, boolean crossed){
         database.crossShoppingListById(id, crossed);
         return bundle.getString("shoppingLists");
+    }
+
+    public String getItems(long listId){
+        database.getItemsSL(listId);
+        return bundle.getString("items");
     }
 
     public String getName() {

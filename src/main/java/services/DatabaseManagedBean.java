@@ -1,6 +1,8 @@
 package services;
 
 import models.User;
+import models.items.IItem;
+import models.items.Item;
 import models.lists.IList;
 import models.lists.RecipeList;
 import models.lists.ShoppingList;
@@ -20,6 +22,8 @@ public class DatabaseManagedBean implements Serializable {
 
     @EJB
     private ShoppingListService shoppingListService;
+    @EJB
+    private ItemService itemService;
     @EJB
     private RecipeListService recipeListService;
     @EJB
@@ -57,9 +61,21 @@ public class DatabaseManagedBean implements Serializable {
         shoppingListService.deleteCrossedLists();
     }
 
-
     public void crossShoppingListById(long id, boolean crossed) {
         shoppingListService.crossListById(id, crossed);
+    }
+
+    public void getItemsSL(long listId) {
+        itemService.getItemsSL(listId);
+    }
+
+    public void addItemSL(IItem i) {
+        if(i instanceof  Item) {
+            itemService.addItem(i);
+        }
+//        else if (l instanceof RecipeList){
+//            recipeListService.addList(l);
+//        }
     }
 
     // RECIPE LIST
@@ -83,4 +99,7 @@ public class DatabaseManagedBean implements Serializable {
     public void crossRecipeListById(long id, boolean crossed) {
         recipeListService.crossListById(id, crossed);
     }
+
+
+
 }

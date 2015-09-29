@@ -2,7 +2,6 @@ package models.items;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 /**
  * Created by sange on 25/09/15.
  */

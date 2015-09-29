@@ -2,12 +2,14 @@ package models.items;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 /**
  * Created by sange on 16/09/15.
  */
 @Entity
 @Table(name = "item")
+@NamedQueries({
+        @NamedQuery(name = "Item.getItemsFromList", query = "SELECT i FROM Item i WHERE i.listId = :listId")
+})
 public class Item implements  IItem  {
 
     @Id

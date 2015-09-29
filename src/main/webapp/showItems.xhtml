@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:mp="http://primefaces.org/ui/material"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="./WEB-INF/basicTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <h:form id="add_list">
+            <h:panelGrid columns="3">
+                <h:column>
+                    <h:outputText value="#{msg.name}" />:
+                </h:column>
+                <h:column>
+                    <h:inputText id="name" value="#{item.name}"/>
+                    <h:message for="name"/>
+                </h:column>
+                <h:column>
+                    <!--<f:metadata>-->
+                        <!--<f:viewParam name="listId" value="#{item.listId}"  />-->
+                    <!--</f:metadata>-->
+                    <!--<f:metadata>-->
+                        <!--<f:viewParam name="listId" value="#{item.listId}" />-->
+                    <!--</f:metadata>-->
+                    <h:commandButton value="add" action="#{item.add}"/>
+                </h:column>
+            </h:panelGrid>
+        </h:form>
+
+        <!--<h:form>-->
+            <!--<h:dataTable value="#{database.getItemsSL(l.id)}" var="i">-->
+                <!--<h:column>-->
+                    <!--<f:facet name="header"><h:outputText value="#{msg.name}"/></f:facet>-->
+                    <!--#{i.name}-->
+                <!--</h:column>-->
+                <!--&lt;!&ndash;<h:column>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<f:facet name="header"><h:outputText value="#{msg.cross}"/></f:facet>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h:commandButton value="x" action="#{shoppingList.cross(l.id, true)}"/>&ndash;&gt;-->
+                <!--&lt;!&ndash;</h:column>&ndash;&gt;-->
+            <!--</h:dataTable>-->
+        <!--</h:form>-->
+
+        <!--<h:form>-->
+            <!--<h:dataTable value="#{database.crossedShoppingLists}" var="l">-->
+                <!--<h:column>-->
+                    <!--<f:facet name="header"><h:outputText value="#{msg.name}"/></f:facet>-->
+                    <!--&lt;!&ndash;#{l.name}&ndash;&gt;-->
+                    <!--<h:commandLink value="#{l.name}" action="#{shoppingList.cross(l.id, false)}"/>-->
+                <!--</h:column>-->
+                <!--<h:column>-->
+                    <!--<f:facet name="header"><h:outputText value="#{msg.noitems}"/></f:facet>-->
+                    <!--#{database.numberOfItemsShoppingList(l.id)}-->
+                <!--</h:column>-->
+                <!--<h:column>-->
+                    <!--<f:facet name="header"><h:outputText value="#{msg.uncross}"/></f:facet>-->
+                    <!--<h:commandButton value="x" action="#{shoppingList.cross(l.id, false)}"/>-->
+                <!--</h:column>-->
+            <!--</h:dataTable>-->
+            <!--<h:commandButton value="#{msg.delete}" action="#{database.deleteCrossedShoppingLists()}"/>-->
+        <!--</h:form>-->
+
+    </ui:define>
+
+</ui:composition>

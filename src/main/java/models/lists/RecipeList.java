@@ -19,9 +19,6 @@ import javax.validation.constraints.NotNull;
 })
 public class RecipeList implements IList {
 
-//    privateivate List<Item> items;
-//    private List<Item> crossedItems;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -31,7 +28,6 @@ public class RecipeList implements IList {
     private String name;
     @Column(name = "crossed")
     private boolean crossed;
-//    private static int sequence = 2;
 
     public RecipeList(String name) {
         this.name = name;

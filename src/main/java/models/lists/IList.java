@@ -1,25 +1,19 @@
 package models.lists;
 
 /**
- * Created by sange on 16/09/15.
+ * Created by sange on 29/09/15.
  */
 public interface IList {
 
-    public String getName();
-
     public long getId();
 
-//    public List<Item> getItems();
-//
-//    public List<Item> getCrossedItems();
-//
-//    public void crossItem(Item item);
-//
-//    public void uncrossItem(Item item);
-//
-//    public void sortList();
-//
-//    public void clearCrossedList();
+    public String getName();
 
+    public void setName(String name);
 
+    public boolean isCrossed();
+
+    public void setCrossed(boolean crossed);
 }
+
+

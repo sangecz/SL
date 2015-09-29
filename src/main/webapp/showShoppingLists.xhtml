@@ -25,8 +25,14 @@
         <h:form>
             <h:dataTable value="#{database.shoppingLists}" var="l">
                 <h:column>
+                    <h:commandLink value="#{l.name}" action="#{shoppingList.getItems(l.id)}" includeViewParams="true">
+                        <!--<f:param name="listId" value="#{l.id}" />-->
+                        <!--<f:metadata>-->
+                            <!--<f:viewParam name="listId" value="#{l.id}" />-->
+                        <!--</f:metadata>-->
+                        <f:setPropertyActionListener target="#{item.listId}" value="#{l.id}" />
+                    </h:commandLink>
                     <f:facet name="header"><h:outputText value="#{msg.name}"/></f:facet>
-                    #{l.name}
                 </h:column>
                 <h:column>
                     <f:facet name="header"><h:outputText value="#{msg.noitems}"/></f:facet>

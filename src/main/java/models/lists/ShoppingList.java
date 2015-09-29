@@ -31,18 +31,13 @@ public class ShoppingList implements IList {
     private String name;
     @Column(name = "crossed")
     private boolean crossed;
-//    private static int sequence = 2;
 
     public ShoppingList(String name) {
         this.name = name;
         this.crossed = false;
-//        this.id = sequence;
-//        sequence++;
     }
 
     public ShoppingList() {
-//        this.id = sequence;
-//        sequence++;
     }
 
     public boolean isCrossed() {
@@ -65,7 +60,7 @@ public class ShoppingList implements IList {
         this.name = name;
     }
 
-//    public List<Item> getItems() {
+//    public List<Item> getItemsSL() {
 //        return items;
 //    }
 //
